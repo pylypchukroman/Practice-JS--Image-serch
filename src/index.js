@@ -25,6 +25,7 @@ function onSearchForm(e) {
   moreBtn.classList.add('is-hidden')
 
   if (query === '') {
+    // console.log('пуста строка');
      Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.')
     return
   }
@@ -32,6 +33,7 @@ function onSearchForm(e) {
   fetchImages(query, page, perPage)
     .then(({ data }) => {
       if (data.totalHits === 0) {
+        // console.log('фото не знайдено');
         Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.')
       } else {
         renderGallery(data.hits)
@@ -46,6 +48,8 @@ function onSearchForm(e) {
     .catch(error => console.log(error))
 }
 
+
+
 function loadMoreBtn() {
   page += 1
   simpleLightBox.destroy()
@@ -55,12 +59,15 @@ function loadMoreBtn() {
       renderGallery(data.hits)
       simpleLightBox = new SimpleLightbox('.gallery a').refresh()
 
-      const lastPages = Math.ceil(data.totalHits / perPage)
-
-      if (page > lastPages) {
+      const lastPage = Math.ceil(data.totalHits / perPage)
+      // if(data.hits.length < 40)
+      if (page > lastPage) {
         moreBtn.classList.add('is-hidden')
+        // console.log('кінець знайдених результатів');
          Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.")
       }
     })
     .catch(error => console.log(error))
 }
+
+

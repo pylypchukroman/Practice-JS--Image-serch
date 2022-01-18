@@ -26,7 +26,7 @@ p {
   width: 100%;
   padding: 10px;
   position: fixed;
-  background-color: #3f57b3;
+  background-color: rgb(37, 37, 132);
 }
 
 .search-form {
@@ -49,7 +49,7 @@ p {
   align-items: center;
   width: 50px;
   border: none;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(180, 177, 177);
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
@@ -74,8 +74,9 @@ p {
   margin-left: 20px;
   min-width: 320px;
   flex-basis: calc((100% - 80px) / 4);
-  border: 2px solid rgb(241, 238, 238);
+  border: 2px solid gray;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .photo-card {
@@ -98,11 +99,11 @@ p {
 
 .btn-load-more {
   display: block;
-  margin: 25px auto 0 auto;
+  margin: 25px auto 10px auto;
   padding: 8px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #3f57b3;
+  background-color: rgb(37, 37, 132);
   color: white;
   cursor: pointer;
 }
